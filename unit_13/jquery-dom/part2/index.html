@@ -5,9 +5,130 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies App</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #ced3dc;
+      }
+      .container {
+        width: 800px;
+        margin: 30px auto;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      .field {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .field label {
+        text-align: right;
+        width: 200px;
+        padding-right: 10px;
+      }
+      #title {
+        width: 500px;
+      }
+      .field input {
+        line-height: 1.5rem;
+        font-size: 1.2rem;
+      }
+      form button {
+        width: 100px;
+        padding: 10px;
+      }
+      .movies-list {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .movie {
+        background-color: #fff;
+        padding: 20px;
+        padding-right: 50px;
+        border-radius: 5px;
+        position: relative;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      .movie button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        border: none;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
+    <div class="container">
+      <form action="">
+        <div class="field">
+          <label for="title">Movie Title:</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            required
+            minlength="2"
+            placeholder="enter you favorite movie title"
+          />
+        </div>
+        <div class="field">
+          <label for="rating">Rating:</label>
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            min="0"
+            max="10"
+            value="5"
+            required
+          />
+        </div>
+        <button type="submit">Add Movie</button>
+      </form>
+      <div class="movies-list"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script></script>
+    <script>
+      $(document).ready(function () {
+        $("form").on("submit", function (evt) {
+          evt.preventDefault();
+
+          const title = $(this).find("#title");
+          const rating = $(this).find("#rating");
+
+          const movie = $("<div/>")
+            .addClass("movie")
+            .append(
+              `<h3>${title.val()}</h3>`,
+              `<span>Rating: ${rating.val()}/10</span>`,
+              "<button>x</button>"
+            );
+
+          movie.on("click", "button", function () {
+            movie.remove();
+          });
+
+          movie.appendTo(".movies-list");
+
+          title.val("");
+          rating.val(5);
+        });
+      });
+    </script>
   </body>
 </html>

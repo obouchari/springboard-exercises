@@ -3,7 +3,7 @@
 ## Part I: Solidify Terminology
 
 1. What is HTTP?
-   It is the protocol used to transfer hypermedia documents, such as HTML on the web.
+It is the protocol used to transfer hypermedia documents, such as HTML on the web.
 
 2. What is a URL?
    URL also referred to as a web address, is a combination of protocol, domain name, and the specific web resource or webpage.

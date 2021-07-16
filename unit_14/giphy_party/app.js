@@ -53,8 +53,9 @@ form.addEventListener("submit", async function (evt) {
       colsLeft--;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   } finally {
+    // update the UI to indicate the end of the background process
     searchInput.value = "";
     searchBtn.innerHTML = searchBtnText;
   }

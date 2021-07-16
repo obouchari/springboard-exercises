@@ -1,0 +1,21 @@
+<!doctype html>
+<head>
+  <title>Connect 4</title>
+  <link href="connect4.css" rel="stylesheet">
+</head>
+<body>
+<form class="start-game">
+  <label for="player1">Player 1 Color:</label>
+  <input type="text" name="player1" id="player1" placeholder="Enter a valid Color name or hex code, orange or #ff33a2" required>
+  <label for="player2">Player 2 Color:</label>
+  <input type="text" name="player2" id="player2" placeholder="Enter a valid Color name or hex code, orange or #ff33a2" required>
+  <button type="submit">Start the Game</button>
+</form>
+<div id="game">
+  <table id="board"></table>
+</div>
+
+<script src="connect4.js"></script>
+
+</body>
+</html>

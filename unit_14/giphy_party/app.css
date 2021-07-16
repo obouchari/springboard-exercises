@@ -1,0 +1,10 @@
+body {
+  background-image: url(cool-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#cards .row {
+  margin-bottom: 1.5rem;
+}
